@@ -10,11 +10,13 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    {{-- <link rel="dns-prefetch" href="//fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet"> --}}
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @stack('top-styles')
+    @vite('resources/sass/app.scss')
+    @stack('bottom-styles')
 </head>
 <body>
     <div id="app">
@@ -30,7 +32,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                        @isOwner
+                            <li class="nav-item">
+                                <a href="{{ route('app.services.index') }}" class="nav-link">Service</a>
+                            </li>
+                        @endisOwner
 
+                        <li class="nav-item">
+                            <a href="{{ route('app.services.index') }}" class="nav-link">Booking</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -76,5 +86,9 @@
             @yield('content')
         </main>
     </div>
+
+    @stack('top-scripts')
+    @vite('resources/js/app.js')
+    @stack('bottom-scripts')
 </body>
 </html>
