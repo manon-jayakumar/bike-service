@@ -6,14 +6,15 @@ use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
 use App\Models\Service;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class ServiceController extends Controller
 {
     public function index(): View
     {
-        $services = Service::select('id', 'name', 'price', 'status', 'created_at')->get();
+        $services = Service::select('id', 'name', 'price', 'status', 'created_at')
+            ->latest()
+            ->paginate(10);
 
         return view('app.services.index', compact('services'));
     }
@@ -29,13 +30,13 @@ class ServiceController extends Controller
             'name' => $request->input('name'),
             'description' => $request->input('description'),
             'price' => $request->input('price'),
-            'status' => $request->input('status')
+            'status' => $request->input('status'),
         ]);
-        
+
         session()->flash('notification', [
             'style' => 'toast',
             'type' => 'success',
-            'message' => 'Service created successfully.'
+            'message' => 'Service created successfully.',
         ]);
 
         return redirect()->route('app.services.index');
@@ -56,13 +57,13 @@ class ServiceController extends Controller
             'name' => $request->input('name'),
             'description' => $request->input('description'),
             'price' => $request->input('price'),
-            'status' => $request->input('status')
+            'status' => $request->input('status'),
         ]);
 
         session()->flash('notification', [
             'style' => 'toast',
             'type' => 'success',
-            'message' => 'Service updated successfully.'
+            'message' => 'Service updated successfully.',
         ]);
 
         return redirect()->route('app.services.index');
@@ -77,7 +78,7 @@ class ServiceController extends Controller
         session()->flash('notification', [
             'style' => 'toast',
             'type' => 'success',
-            'message' => 'Service deleted successfully.'
+            'message' => 'Service deleted successfully.',
         ]);
 
         return redirect()->route('app.services.index');

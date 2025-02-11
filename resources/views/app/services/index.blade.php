@@ -17,7 +17,7 @@
         @if (session('notification'))
             <div class="alert alert-{{ session('notification.type') }} alert-dismissible fade show" role="alert">
                 <strong>{{ ucfirst(session('notification.type')) }}:</strong> {{ session('notification.message') }}
-        
+
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif

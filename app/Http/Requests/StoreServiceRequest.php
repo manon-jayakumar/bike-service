@@ -12,7 +12,7 @@ class StoreServiceRequest extends FormRequest
             'name' => ['required', 'string', 'max:255', 'unique:services,name'],
             'description' => ['nullable', 'string'],
             'price' => ['required', 'numeric', 'min:1'],
-            'status' => ['required', 'in:active,inactive']
+            'status' => ['required', 'in:active,inactive'],
         ];
     }
 }

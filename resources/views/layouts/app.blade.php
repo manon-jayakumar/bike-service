@@ -39,7 +39,7 @@
                         @endisOwner
 
                         <li class="nav-item">
-                            <a href="{{ route('app.services.index') }}" class="nav-link">Booking</a>
+                            <a href="{{ route('app.bookings.index') }}" class="nav-link">Booking</a>
                         </li>
                     </ul>
 

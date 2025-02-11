@@ -12,7 +12,7 @@ class UpdateServiceRequest extends FormRequest
             'name' => ['required', 'string', 'max:255', 'unique:services,name,' . $this->route('service')],
             'description' => ['nullable', 'string'],
             'price' => ['required', 'numeric', 'min:1'],
-            'status' => ['required', 'in:active,inactive']
+            'status' => ['required', 'in:active,inactive'],
         ];
     }
 }
