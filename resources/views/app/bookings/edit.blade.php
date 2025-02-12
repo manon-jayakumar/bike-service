@@ -21,10 +21,14 @@
                         @method('PUT')
 
                         <div class="card-header">
-                            <h3 class="card-title">{{ __('Edit Booking') }}</h3>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h4 class="card-title">{{ __('Edit Booking') }}</h4>
+                                </div>
 
-                            <div class="card-actions">
-                                <a href="{{ route('app.bookings.index') }}" class="btn btn-secondary">{{ __('Back') }}</a>
+                                <div class="col-md-4 text-end">
+                                    <a href="{{ route('app.bookings.index') }}" class="btn btn-sm btn-secondary">{{ __('Back') }}</a>
+                                </div>
                             </div>
                         </div>
 
@@ -81,8 +85,8 @@
                             </div>
                         </div>
 
-                        <div class="card-footer card-end">
-                            <button type="submit" class="btn btn-primary">{{ __('Update') }}</button>
+                        <div class="card-footer card-end text-end">
+                            <button type="submit" class="btn btn-sm btn-primary">{{ __('Update') }}</button>
                         </div>
                     </form>
                 </div>

@@ -15,6 +15,7 @@ class SuperAdminSeeder extends Seeder
         User::create([
             'name' => 'John',
             'email' => 'john@gmail.com',
+            'mobile' => '1234567890',
             'role' => 'owner',
             'password' => '12345678',
         ]);

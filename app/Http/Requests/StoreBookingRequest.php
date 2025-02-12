@@ -6,6 +6,11 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreBookingRequest extends FormRequest
 {
+    /**
+     * Define validation rules for storing a new booking.
+     *
+     * @return array<string, mixed>
+     */
     public function rules(): array
     {
         return [

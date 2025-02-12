@@ -6,6 +6,11 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreServiceRequest extends FormRequest
 {
+    /**
+     * Define validation rules for storing a new service.
+     *
+     * @return array<string, mixed>
+     */
     public function rules(): array
     {
         return [

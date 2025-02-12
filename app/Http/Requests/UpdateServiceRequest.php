@@ -6,6 +6,11 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateServiceRequest extends FormRequest
 {
+    /**
+     * Define validation rules for updating a service.
+     *
+     * @return array<string, mixed>
+     */
     public function rules(): array
     {
         return [

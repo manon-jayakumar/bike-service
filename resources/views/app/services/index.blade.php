@@ -26,11 +26,16 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">{{ __('Service List') }}</h5>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h5 class="card-title">{{ __('Service List') }}</h5>
+                            </div>
 
-                        <div class="card-actions">
-                            <a href="{{ route('app.services.create') }}" class="btn btn-sm btn-primary">{{ __('Create') }}</a>
+                            <div class="col-md-4 text-end">
+                                <a href="{{ route('app.services.create') }}" class="btn btn-sm btn-primary">{{ __('Create') }}</a>
+                            </div>
                         </div>
+
                     </div>
 
                     <div class="table-responsive">

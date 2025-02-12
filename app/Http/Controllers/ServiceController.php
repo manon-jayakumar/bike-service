@@ -10,6 +10,9 @@ use Illuminate\View\View;
 
 class ServiceController extends Controller
 {
+    /**
+     * Display a paginated list of services.
+     */
     public function index(): View
     {
         $services = Service::select('id', 'name', 'price', 'status', 'created_at')
@@ -19,11 +22,17 @@ class ServiceController extends Controller
         return view('app.services.index', compact('services'));
     }
 
+    /**
+     * Show the form for creating a new service.
+     */
     public function create(): View
     {
         return view('app.services.create');
     }
 
+    /**
+     * Store a newly created service in the database.
+     */
     public function store(StoreServiceRequest $request): RedirectResponse
     {
         Service::create([
@@ -42,6 +51,11 @@ class ServiceController extends Controller
         return redirect()->route('app.services.index');
     }
 
+    /**
+     * Show the form for editing the specified service.
+     *
+     * @param  int  $id
+     */
     public function edit($id): View
     {
         $service = Service::findOrFail($id);
@@ -49,6 +63,9 @@ class ServiceController extends Controller
         return view('app.services.edit', compact('service'));
     }
 
+    /**
+     * Update the specified service in the database.
+     */
     public function update(UpdateServiceRequest $request, int $id): RedirectResponse
     {
         $service = Service::findOrFail($id);
@@ -69,6 +86,9 @@ class ServiceController extends Controller
         return redirect()->route('app.services.index');
     }
 
+    /**
+     * Remove the specified service from the database.
+     */
     public function destroy(int $id): RedirectResponse
     {
         $service = Service::findOrFail($id);

@@ -6,6 +6,11 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateBookingRequest extends FormRequest
 {
+    /**
+     * Define validation rules for updating a booking.
+     *
+     * @return array<string, mixed>
+     */
     public function rules(): array
     {
         return [

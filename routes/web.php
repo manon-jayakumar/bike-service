@@ -14,6 +14,7 @@ Auth::routes();
 Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('app')->name('app.')->group(function () {
+    // Services
     Route::middleware(IsOwner::class)->prefix('services')->name('services.')->group(function () {
         Route::get('/', [ServiceController::class, 'index'])->name('index');
         Route::get('create', [ServiceController::class, 'create'])->name('create');
@@ -23,6 +24,7 @@ Route::prefix('app')->name('app.')->group(function () {
         Route::delete('{service}', [ServiceController::class, 'destroy'])->name('destroy');
     });
 
+    // Bookings
     Route::prefix('bookings')->name('bookings.')->group(function () {
         Route::get('/', [BookingController::class, 'index'])->name('index');
         Route::get('create', [BookingController::class, 'create'])->name('create');

@@ -26,13 +26,18 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">{{ __('Booking List') }}</h5>
-
-                        @isUser
-                            <div class="card-actions">
-                                <a href="{{ route('app.bookings.create') }}" class="btn btn-sm btn-primary">{{ __('Create') }}</a>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <h5 class="card-title">{{ __('Booking List') }}</h5>
                             </div>
-                        @endisUser
+
+                            <div class="col-md-4 text-end">
+                                @isUser
+                                    <a href="{{ route('app.bookings.create') }}" class="btn btn-sm btn-primary">{{ __('Create') }}</a>
+                                @endisUser
+                            </div>
+                        </div>
+
                     </div>
 
                     <div class="table-responsive">
